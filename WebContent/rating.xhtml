@@ -9,36 +9,37 @@
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
     <ui:define name="content">
         <h:form>
-            <h:outputText value="Ratings: "></h:outputText>
+            <h:outputText value="Ratings for "></h:outputText>
+            <h:outputText value="BarBean.name "></h:outputText> <!-- value used to be #{BarBean.name} -->
                <br />
               <br />
                
-					<ui:repeat value="#{barBean.ratings}" var="x">
+					<!-- <ui:repeat value="#{barBean.ratings}" var="x">  -->
                	    <h:outputText value="Rating:"></h:outputText>
                	    
                	
                	        <h:panelGrid columns="2">
 
                	    		<h:outputText value="Rating:"></h:outputText>
-              				<h:outputText value="#{x[1]}" />       
+              				<h:outputText value="x[1]" />       
               				
               				<h:outputText value="Comment:"></h:outputText>
-              				<h:outputText value="#{x[2]}" />
+              				<h:outputText value="x[2]" />
               				
               				<h:outputText value="Date:"></h:outputText>
-              				<h:outputText value="#{x[3]}" />
+              				<h:outputText value="x[3]" />
 
               				<h:outputText value="User:"></h:outputText>
-              				<h:outputText value="#{x[4]}" />
+              				<h:outputText value="x[4]" />
               				
               				<br />
 
               			</h:panelGrid>
           		
-               	    </ui:repeat>
+               	    <!--   </ui:repeat> -->
                	    
             <h:outputText value="Rating"></h:outputText>
-            <h:selectOneMenu value="#{welcomeBean.selection}">
+            <h:selectOneMenu value="RatingBean.rating">
    				<f:selectItem itemValue="1" itemLabel="1" />
    				<f:selectItem itemValue="2" itemLabel="2" />
    				<f:selectItem itemValue="3" itemLabel="3" />
@@ -46,10 +47,10 @@
    				<f:selectItem itemValue="5" itemLabel="5" />			
 			</h:selectOneMenu>   
             <h:outputText value="Comment"></h:outputText>
-            <h:inputText value="#{ratingBean.comment}"></h:inputText>
-            <h:commandButton value="Add Rating" action="#{RatingBean.addRating}">
-        	<f:setPropertyActionListener target="#{RatingBean.barid}" value="#{x[0]}" />
-        	<f:setPropertyActionListener target="#{RatingBean.userid}" value="#{x[0]}" />
+            <h:inputText value= "ratingBean.comment"></h:inputText>
+            <h:commandButton value="Add Rating" action="true"> <!-- action used to be #{RatingBean.addRating}  -->
+        	<!-- <f:setPropertyActionListener target="#{RatingBean.barid}" value="#{x[0]}" />   -->
+        	<!-- <f:setPropertyActionListener target="#{RatingBean.userid}" value="#{x[0]}" />   -->
             </h:commandButton>
             <br />
             <h:commandButton value="Back" action="back"></h:commandButton>

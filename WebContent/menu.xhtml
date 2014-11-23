@@ -13,34 +13,35 @@
                <br />
               <br />
                
-					<ui:repeat value="#{barBean.menus}" var="x">
+					<!-- <ui:repeat value="" var="x"> value used to be #{barBean.menus} -->
                	    <h:outputText value="Menu:"></h:outputText>
                	    
                	
                	        <h:panelGrid columns="2">
 
                	    		<h:outputText value="Title:"></h:outputText>
-              				<h:outputText value="#{x[1]}" />       
+              				<h:outputText value="title" />       
               				
               				<h:outputText value="Day:"></h:outputText>
-              				<h:outputText value="#{x[2]}" />
+              				<h:outputText value="day" />
               				
               				<h:outputText value="From:"></h:outputText>
-              				<h:outputText value="#{x[3]}" />
+              				<h:outputText value="from" />
 
               				<h:outputText value="Ends:"></h:outputText>
-              				<h:outputText value="#{x[4]}" />
+              				<h:outputText value="ends" />
               				
-              				<h:commandButton value="Items" action="#{MenuBean.getItems}">
-        					<f:setPropertyActionListener target="#{MenuBean.menuid}" value="#{x[0]}" />
+              				<h:commandButton value="Items" action="true"><!-- action used to be #{MenuBean.getItems}  -->
+        					<!-- <f:setPropertyActionListener target="#{MenuBean.menuid}" value="#{x[0]}" />    -->
               				</h:commandButton>
+              				<h:commandButton value="Fail" action="false" />
               				
               				<br />
               				
               				
               			</h:panelGrid>
           		
-               	    </ui:repeat>
+               	    <!-- </ui:repeat>   -->
             <h:commandButton value="Back" action="back"></h:commandButton>
             <h:commandButton value="Logout" action="logout"></h:commandButton>
             

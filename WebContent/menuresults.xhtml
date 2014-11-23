@@ -13,20 +13,20 @@
                <br />
               <br />
                
-					<ui:repeat value="#{MenuBean.items}" var="x">
+					<!--  <ui:repeat value="#{MenuBean.items}" var="x">  -->
                	    <h:outputText value="Item:"></h:outputText>
                	    
                	
                	        <h:panelGrid columns="2">
 
                	    		<h:outputText value="Name:"></h:outputText>
-              				<h:outputText value="#{x[1]}" />       
+              				<h:outputText value="x[1]" />       
               				
               				<h:outputText value="Type:"></h:outputText>
-              				<h:outputText value="#{x[2]}" />
+              				<h:outputText value="x[2]" />
               				
               				<h:outputText value="Price:"></h:outputText>
-              				<h:outputText value="#{x[3]}" />
+              				<h:outputText value="x[3]" />
 
               				
               				<br />
@@ -34,7 +34,7 @@
               				
               			</h:panelGrid>
           		
-               	    </ui:repeat>
+               	    <!--  </ui:repeat>  -->
             <h:commandButton value="Back" action="back"></h:commandButton>
             <h:commandButton value="Logout" action="logout"></h:commandButton>
             

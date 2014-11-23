@@ -13,34 +13,34 @@
                <br />
               <br />
                
-					<ui:repeat value="#{barBean.specials}" var="x">
+					<!-- <ui:repeat value="#{barBean.specials}" var="x">   -->
                	    <h:outputText value="Special:"></h:outputText>
                	    
                	
                	        <h:panelGrid columns="2">
 
                	    		<h:outputText value="Title:"></h:outputText>
-              				<h:outputText value="#{x[1]}" />       
+              				<h:outputText value="x[1]" />       
               				
               				<h:outputText value="Day:"></h:outputText>
-              				<h:outputText value="#{x[2]}" />
+              				<h:outputText value="x[2]" />
               				
               				<h:outputText value="From:"></h:outputText>
-              				<h:outputText value="#{x[3]}" />
+              				<h:outputText value="x[3]" />
 
               				<h:outputText value="Ends:"></h:outputText>
-              				<h:outputText value="#{x[4]}" />
+              				<h:outputText value="x[4]" />
               				
-              				<h:commandButton value="Items" action="#{SpecialBean.getItems}">
-        					<f:setPropertyActionListener target="#{SpecialBean.specialid}" value="#{x[0]}" />
+              				<h:commandButton value="Items" action="true"> <!-- action used to be #{SpecialBean.getItems}  -->
+        					<!-- <f:setPropertyActionListener target="#{SpecialBean.specialid}" value="#{x[0]}" />   -->
               				</h:commandButton>
-              				
+              				<h:commandButton value="FAIL" action="false" />
               				<br />
               				
               				
               			</h:panelGrid>
           		
-               	    </ui:repeat>
+               	   <!--  </ui:repeat>  -->
             <h:commandButton value="Back" action="back"></h:commandButton>
             <h:commandButton value="Logout" action="logout"></h:commandButton>
             
