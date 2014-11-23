@@ -49,14 +49,16 @@
    <PROCESS-ITEM-OUTPUT ID="logout::#exit.xhtml" NAME="output"
     PATH="/exit.xhtml" SHAPE="-1,24" TARGET="rules:#exit.xhtml"
     TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="rating::#myratings.xhtml" NAME="output1"
+    PATH="/myratings.xhtml" TARGET="rules:#myratings.xhtml"
+    TITLE="rating" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#exit.xhtml" PATH="/exit.xhtml"
-  SHAPE="1072,193,0,0" model-entity="JSFProcessGroup">
+  SHAPE="1064,192,50,41" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#exit.xhtml:0" NAME="item" PATH="/exit.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="logout::#login.xhtml" NAME="output"
-    PATH="/login.xhtml" SHAPE="-1,32" TARGET="rules:#login.xhtml"
-    TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#noresults.xhtml" PATH="/noresults.xhtml"
@@ -78,8 +80,8 @@
   </PROCESS-ITEM>
   <PROCESS-ITEM ID="rules:#register.xhtml:1" NAME="item1"
    PATH="/register.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="login::#login.xhtml" NAME="output"
-    PATH="/login.xhtml" SHAPE="-1,32" TARGET="rules:#login.xhtml"
+   <PROCESS-ITEM-OUTPUT ID="login::#exit.xhtml" NAME="output"
+    PATH="/exit.xhtml" SHAPE="-1,32" TARGET="rules:#exit.xhtml"
     TITLE="login" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
   <PROCESS-ITEM ID="rules:#register.xhtml:2" NAME="item2"
@@ -172,18 +174,6 @@
     TITLE="logout" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#Activity.xhtml" PATH="/Activity.xhtml"
-  SHAPE="488,448,50,57" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#Activity.xhtml:0" NAME="item"
-   PATH="/Activity.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="back::#barresults.xhtml" NAME="output"
-    PATH="/barresults.xhtml" SHAPE="-1,32"
-    TARGET="rules:#barresults.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="logout::#exit.xhtml" NAME="output1"
-    PATH="/exit.xhtml" SHAPE="-1,24" TARGET="rules:#exit.xhtml"
-    TITLE="logout" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#event.xhtml" PATH="/event.xhtml"
   SHAPE="528,17,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#event.xhtml:0" NAME="item"
@@ -268,6 +258,24 @@
    <PROCESS-ITEM-OUTPUT ID="back::#barresults.xhtml" NAME="output"
     PATH="/barresults.xhtml" TARGET="rules:#barresults.xhtml"
     TITLE="back" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="logout::#exit.xhtml" NAME="output1"
+    PATH="/exit.xhtml" TARGET="rules:#exit.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#activity.xhtml:1" NAME="item1"
+   PATH="/activity.xhtml" SHAPE="448,622,47,31" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="back::#barresults.xhtml" NAME="output"
+    PATH="/barresults.xhtml" TARGET="rules:#barresults.xhtml"
+    TITLE="back" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="logout::#exit.xhtml" NAME="output1"
+    PATH="/exit.xhtml" TARGET="rules:#exit.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#myratings.xhtml" PATH="/myratings.xhtml"
+  SHAPE="1584,368,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#myratings.xhtml:0" NAME="item"
+   PATH="/myratings.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="back::#welcome.xhtml" NAME="output"
+    PATH="/welcome.xhtml" TARGET="rules:#welcome.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="logout::#exit.xhtml" NAME="output1"
     PATH="/exit.xhtml" TARGET="rules:#exit.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
