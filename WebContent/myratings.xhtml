@@ -11,28 +11,25 @@
         <h:form>
             <h:outputText value="#{loginBean.name}"></h:outputText>
             <h:outputText value="'s Ratings"></h:outputText>
-
-               <br />
-              <br />
-               
-					<ui:repeat value="#{welcomeBean.ratings}" var="x">
-               	    <h:outputText value="Bar: "></h:outputText>
-              				<h:outputText value="#{x[4]}" />
-
-               	        <h:panelGrid columns="2">
-   				
-               	    		<h:outputText value="Rating:"></h:outputText>
-              				<h:outputText value="#{x[1]}" />       
+            <br />
+            <br />
+			<ui:repeat value="#{welcomeBean.ratings}" var="x">
+            	<h:outputText value=" Bar ID: "></h:outputText>
+              	<h:outputText value="#{x[4]}" />
+				<h:panelGrid columns="2">
+   			
+               	    <h:outputText value="Rating:"></h:outputText>
+              		<h:outputText value="#{x[1]}" />       
               				
-              				<h:outputText value="Comment:"></h:outputText>
-              				<h:outputText value="#{x[2]}" />
+              		<h:outputText value="Comment:"></h:outputText>
+              		<h:outputText value="#{x[2]}" />
               				
-              				<h:outputText value="Date:"></h:outputText>
-              				<h:outputText value="#{x[3]}" />
-   				
-              				<br />
-              			</h:panelGrid>        		
-               	    </ui:repeat>
+              		<h:outputText value="Date:"></h:outputText>
+              		<h:outputText value="#{x[3]}" />
+              	</h:panelGrid> 
+              	<hr />
+              	<br />       		
+           </ui:repeat>
                	    
             <h:commandButton value="Back" action="back"></h:commandButton>
             <h:commandButton value="Logout" action="logout"></h:commandButton>

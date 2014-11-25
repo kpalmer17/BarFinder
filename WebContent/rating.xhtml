@@ -29,14 +29,16 @@
               				<h:outputText value="Date:"></h:outputText>
               				<h:outputText value="#{x[3]}" />
 
-              				<h:outputText value="User:"></h:outputText>
+              				<h:outputText value="User ID:"></h:outputText>
               				<h:outputText value="#{x[4]}" />
 
               			</h:panelGrid>
-   
+              			<hr />
+              			<br />
                	    </ui:repeat>
                	    
-					<h:outputText value="Rating"></h:outputText>
+               	    <br />
+					<h:outputText value=" Rating   "></h:outputText>
            			<h:selectOneMenu value="#{ratingBean.rating}">
    						<f:selectItem itemValue="1" itemLabel="1" />
    						<f:selectItem itemValue="2" itemLabel="2" />
@@ -44,9 +46,9 @@
    						<f:selectItem itemValue="4" itemLabel="4" />
    						<f:selectItem itemValue="5" itemLabel="5" />			
 					</h:selectOneMenu>   
-            		<h:outputText value="Comment"></h:outputText>
+            		<h:outputText value="    Comment  "></h:outputText>
             		<h:inputText value= "#{ratingBean.comment}"></h:inputText>
-            		<h:commandButton value="Add Rating" action="#{ratingBean.add}"> <!-- action used to be #{RatingBean.addRating}  -->
+            		<h:commandButton value="Add Rating" action="#{ratingBean.add}">
            			 </h:commandButton>               	    
 
             <br />

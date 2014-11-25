@@ -4,6 +4,10 @@
 package edu.osu;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 import examples.cse769.EJB.Service.AccountManager;
 
@@ -39,16 +43,6 @@ public class RegisterBean
 
     public void setName (final String name)
     {
-		if(name.equalsIgnoreCase("!") || name.equalsIgnoreCase("@") || name.equalsIgnoreCase("#")
-				|| name.equalsIgnoreCase("$") || name.equalsIgnoreCase("%") || name.equalsIgnoreCase("^")
-				|| name.equalsIgnoreCase("&") || name.equalsIgnoreCase("*") || name.equalsIgnoreCase("(")
-				|| name.equalsIgnoreCase(")") || name.equalsIgnoreCase("_") || name.equalsIgnoreCase("+")
-				|| name.equalsIgnoreCase(""))
-			setValid("Not a Valid User Name");
-		else
-			setValid("Valid User Name");
-
-
         this.name = name;
     }
 
@@ -64,9 +58,36 @@ public class RegisterBean
         this.password = password;
     }
 
+    public void validateName(FacesContext f, UIComponent c, Object obj){
+        String s=(String)obj;
+        if(s.length()==0) {
+        	setValid("not valid");
+        	throw new ValidatorException(new FacesMessage("Name cannot be empty."));
+        }	
+        else if(s.contains("!") || s.contains("@") || s.contains("#")
+				|| s.contains("$") || s.contains("%") || s.contains("^")
+				|| s.contains("&") || s.contains("*") || s.contains("(")
+				|| s.contains(")") || s.contains("+") ) {
+        	setValid("not valid");
+        	throw new ValidatorException(new FacesMessage("Name cannot contain (!@#$%^&*()+)"));
+				} else {
+					
+			setValid("Valid");
+		}
+        
+    }
+    
+    public void validatePassword(FacesContext f, UIComponent c, Object obj){
+        String s=(String)obj;
+        if(s.length()==0) {
+        	throw new ValidatorException(new FacesMessage("Password cannot be empty."));
+        }	
+        
+    }
+    
 
 	public String register() {
-		if((name.isEmpty() != true) && (password.isEmpty()!= true)) {
+		if((name.isEmpty() != true) && (password.isEmpty()!= true) && (valid != "not valid")) {
 		String ret = accountManager.register(name, password);
 		//helloService.password(password);
 		if(!ret.equalsIgnoreCase("Exists"))
@@ -75,7 +96,7 @@ public class RegisterBean
 			return "Exists";
 		}
 		
-		else return "false";
+		else return "Exists";
 	}
 	
 }

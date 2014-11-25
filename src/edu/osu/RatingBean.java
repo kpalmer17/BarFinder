@@ -1,10 +1,14 @@
 package edu.osu;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.ejb.EJB;
+
+
 
 
 
@@ -67,21 +71,22 @@ public class RatingBean {
 	
 	public String add() {
 		
-		int ratingnum = Integer.parseInt(rating);
-		Calendar c = new GregorianCalendar();
-		Date today = c.getTime();
+		if ((rating.isEmpty() != true) && (comment.isEmpty() != true)){
+			int ratingnum = Integer.parseInt(rating);
 		
-		setDate(today.toString());
-		System.out.println(String.valueOf(barBean.getBarid()));
-		System.out.println(String.valueOf(logBean.getUserid()));
+			Calendar c = new GregorianCalendar();
+			Date today = c.getTime();
+			DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 		
-		String ret = ratingManager.add(ratingnum, comment, date, barBean.getBarid(), logBean.getUserid());
+			setDate(format.format(today));
 		
-		if(!ret.equalsIgnoreCase("fail"))
-			return "true";
-			else 
-				return "false";
+			String ret = ratingManager.add(ratingnum, comment, date, barBean.getBarid(), logBean.getUserid());
+		
+			if(!ret.equalsIgnoreCase("fail"))
+				return "true";
+				else 
+					return "fail";
 
+		} else return "fail";
 	}
-	
 }

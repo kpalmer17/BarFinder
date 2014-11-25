@@ -10,21 +10,18 @@
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
     <ui:define name="content">
         <h:form id = "textfields">
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="3">
                 <h:outputText id = "o1" value="Name"></h:outputText>
-                <h:inputText id = "i1" value="#{registerBean.name}"></h:inputText>
+                <h:inputText id = "i1" value="#{registerBean.name}" validator="#{registerBean.validateName}">
+                <f:ajax event = "valueChange" execute = "@this" render = "nameError"></f:ajax>
+                </h:inputText>
+                <h:message for="i1" id="nameError" style= "color: red;"></h:message>
                 <h:outputText  id = "o2" value="Password"></h:outputText>
-                <h:inputSecret  id = "i2" value="#{registerBean.password}"></h:inputSecret>
-				<rich:validator>
-				</rich:validator>
-				<h:outputText  id = "o3" value="#{registerBean.valid}"></h:outputText>
-                
+                <h:inputSecret  id = "i2" value="#{registerBean.password}" validator="#{registerBean.validatePassword}">
+                <f:ajax event = "valueChange" execute = "@this" render = "passError"></f:ajax>
+                </h:inputSecret>
+                <h:message for="i2" id="passError" style= "color: red;"></h:message>
             </h:panelGrid>
-             
-            <h:commandButton value="Is Name Valid?" style= "position: absolute; left: 300px; top: 59px;">
-            				
-            	            <f:ajax execute = "i1" render = "o3"></f:ajax>
-            </h:commandButton>
             
             <h:commandButton value="Register" action="#{registerBean.register}" style= "position: static; 
             left: 200px; top: 100px"></h:commandButton> 
@@ -32,19 +29,6 @@
             left: 180px; top: 130px"></h:commandButton>
            
         </h:form>
-            <script type = "text/javasript">
-				var x = document.getElementById("textfields");
-				x.addEventListener("focus", myFocusFunction, true);
-				x.addEventListener("blur", myBlurFunction, true);
-
-				function myFocusFunction() {
-    			document.getElementById("i1").style.backgroundColor = "red"; 
-				}
-
-				function myBlurFunction() {
-				document.getElementById("i1").style.backgroundColor = ""; 
-				}
-			</script>
     </ui:define>
 </ui:composition>
 </html>

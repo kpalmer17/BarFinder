@@ -46,6 +46,11 @@
    <property-class>edu.osu.LoginBean</property-class>
    <value>#{loginBean}</value>
   </managed-property>
+  <managed-property>
+   <property-name>barBean</property-name>
+   <property-class>edu.osu.BarBean</property-class>
+   <value>#{barBean}</value>
+  </managed-property>
  </managed-bean>
  <navigation-rule>
   <display-name>login.xhtml</display-name>
