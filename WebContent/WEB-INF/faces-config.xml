@@ -22,89 +22,9 @@
    <value>#{loginBean}</value>
   </managed-property>
   <managed-property>
-   <property-name>profileEmployerBean</property-name>
-   <property-class>edu.osu.ProfileEmployerBean</property-class>
-   <value>#{profileEmployerBean}</value>
-  </managed-property>
-  <managed-property>
-   <property-name>profileBean</property-name>
-   <property-class>edu.osu.ProfileBean</property-class>
-   <value>#{profileBean}</value>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>jobsAppliedBean</managed-bean-name>
-  <managed-bean-class>edu.osu.JobsAppliedBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
-  <managed-property>
-   <property-name>logBean</property-name>
-   <property-class>edu.osu.LoginBean</property-class>
-   <value>#{loginBean}</value>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>applyBean</managed-bean-name>
-  <managed-bean-class>edu.osu.ApplyBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
-  <managed-property>
-   <property-name>welBean</property-name>
-   <property-class>edu.osu.WelcomeBean</property-class>
-   <value>#{welcomeBean}</value>
-  </managed-property>
-  <managed-property>
-   <property-name>logBean</property-name>
-   <property-class>edu.osu.LoginBean</property-class>
-   <value>#{loginBean}</value>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>addBean</managed-bean-name>
-  <managed-bean-class>edu.osu.AddBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
-  <managed-property>
-   <property-name>logBean</property-name>
-   <property-class>edu.osu.LoginBean</property-class>
-   <value>#{loginBean}</value>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>profileEmployerBean</managed-bean-name>
-  <managed-bean-class>edu.osu.ProfileEmployerBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
-  <managed-property>
-   <property-name>logBean</property-name>
-   <property-class>edu.osu.LoginBean</property-class>
-   <value>#{loginBean}</value>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>jobsAddedBean</managed-bean-name>
-  <managed-bean-class>edu.osu.JobsAddedBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
-  <managed-property>
-   <property-name>logBean</property-name>
-   <property-class>edu.osu.LoginBean</property-class>
-   <value>#{loginBean}</value>
-  </managed-property>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>candidateBean</managed-bean-name>
-  <managed-bean-class>edu.osu.CandidateBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>logHelperBean</managed-bean-name>
-  <managed-bean-class>edu.osu.LogHelperBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>profileBean</managed-bean-name>
-  <managed-bean-class>edu.osu.ProfileBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
-  <managed-property>
-   <property-name>logBean</property-name>
-   <property-class>edu.osu.LoginBean</property-class>
-   <value>#{loginBean}</value>
+   <property-name>RatingBean</property-name>
+   <property-class>edu.osu.RatingBean</property-class>
+   <value>#{ratingBean}</value>
   </managed-property>
  </managed-bean>
  <navigation-rule>
@@ -359,6 +279,10 @@
    <from-outcome>logout</from-outcome>
    <to-view-id>/exit.xhtml</to-view-id>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>fail</from-outcome>
+   <to-view-id>/ratingfail.xhtml</to-view-id>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>/ratingadded.xhtml</from-view-id>
@@ -394,6 +318,13 @@
   <navigation-case>
    <from-outcome>login</from-outcome>
    <to-view-id>/login.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/ratingfail.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>back</from-outcome>
+   <to-view-id>/rating.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
 </faces-config>

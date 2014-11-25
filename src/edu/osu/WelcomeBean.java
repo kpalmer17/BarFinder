@@ -10,10 +10,9 @@ import javax.ejb.EJB;
 
 
 
-import examples.cse769.EJB.Service.HelloService;
-import examples.cse769.EJB.Service.JobApply;
-import examples.cse769.EJB.Service.JobListing;
-import examples.cse769.EJB.Service.ProfileEmployer;
+import examples.cse769.EJB.Service.RatingManager;
+import examples.cse769.EJB.Service.BarManager;
+
 
 
 /**
@@ -24,8 +23,17 @@ public class WelcomeBean
 {
 	
 	@EJB 
-	private ProfileEmployer profileEmployer;
-	private LoginBean logBean;	//is it required now---make changes in property type code in faces also
+	private RatingManager ratingManager;
+	@EJB
+	private BarManager barManager;
+	
+	private LoginBean logBean;
+    private String label;
+    private String searchtext;
+    private List<List<String>> ratings = new ArrayList<List<String>>();
+    private List<List<String>> bars = new ArrayList<List<String>>();
+    
+	
 	public LoginBean getLogBean() {
 		return logBean;
 	}
@@ -33,83 +41,46 @@ public class WelcomeBean
 	public void setLogBean(LoginBean logBean) {
 		this.logBean = logBean;
 	}
-	
-	private ProfileEmployerBean profileEmployerBean;
 
 	
-	public ProfileEmployerBean getProfileEmployerBean() {
-		return profileEmployerBean;
+	public List<List<String>> getRatings() {
+		return ratings;
 	}
 
-	public void setProfileEmployerBean(ProfileEmployerBean profileEmployerBean) {
-		this.profileEmployerBean = profileEmployerBean;
+	public void setRatings(List<List<String>> ratings) {
+		this.ratings = ratings;
 	}
-
-	private ProfileBean profileBean;
 	
-	public ProfileBean getProfileBean() {
-		return profileBean;
+	public List<List<String>> getBars() {
+		return bars;
 	}
 
-	public void setProfileBean(ProfileBean profileBean) {
-		this.profileBean = profileBean;
-	}
-
-	
-    private List<List<String>> jobs = new ArrayList<List<String>>();
-
-	
-	public List<List<String>> getJobs() {
-		return jobs;
-	}
-
-	public void setJobs(List<List<String>> jobs) {
-		this.jobs = jobs;
-	}
-
-	@EJB 
-	private HelloService helloService;
-	@EJB
-	private JobListing jobListing;
-	
-	@EJB
-	private JobApply jobApply;
-    private String title;
-    private String location;
-
-    private String aid;//chk
-
-    
-    public String getAid() {
-		return aid;
-	}
-
-	public void setAid(String aid) {
-		this.aid = aid;
+	public void setBars(List<List<String>> bars) {
+		this.bars = bars;
 	}
 
 
-	public String getTitle() {
-		return title;
+	public String getLabel() {
+		return label;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
-	public String getLocation() {
-		return location;
+	public String getSearchText() {
+		return searchtext;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setSearchText(String searchtext) {
+		this.searchtext = searchtext;
 	}
 
 	public String search() {
 		
-		jobs = jobListing.findJob(title, location);
+		bars = barManager.find(label, searchtext);
 		
-		if(jobs.isEmpty())
+		if(bars.isEmpty())
 			return "false";
 		
 		else
@@ -117,45 +88,14 @@ public class WelcomeBean
 	}
 	
 	
-	public String profile() {
+	public String ratings() {
 		
-		String[] results = helloService.search(logBean.getName());
+		ratings = ratingManager.findForUser(logBean.getUserid());
 		
-		if(results[0].equalsIgnoreCase("no"))
+		if(ratings.isEmpty())
 			return "false";
 		
 		else
-		{
-			profileBean.setTitle(results[0]);
-			profileBean.setLocation(results[1]);
-			profileBean.setTechnology(results[2]);
-			profileBean.setPay(results[3]);
-
-			profileBean.setUser(logBean.getName());
-			return "profile";
-			
-		}
+		{return "true";}
 	}
-	
-	
-	public String profileEmployer() {
-		
-		String[] results = profileEmployer.firstProfile(logBean.getName());
-		
-		if(!results[0].equalsIgnoreCase("no"))
-		{
-		profileEmployerBean.setCompany(results[0]);
-		profileEmployerBean.setLocation(results[1]);
-		profileEmployerBean.setTechnology(results[2]);
-		profileEmployerBean.setDomain(results[3]);
-		profileEmployerBean.setUser(logBean.getName());
-			return "profile";
-		}
-		else
-		{
-			profileEmployerBean.setUser(logBean.getName());
-			return "profile";
-		}
-	}
-	
 }

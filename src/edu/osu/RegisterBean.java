@@ -3,12 +3,9 @@
  */
 package edu.osu;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.ejb.EJB;
 
-import examples.cse769.EJB.Service.HelloService;
+import examples.cse769.EJB.Service.AccountManager;
 
 /**
  * @author Reddiah
@@ -17,70 +14,12 @@ import examples.cse769.EJB.Service.HelloService;
 public class RegisterBean
 {
 	@EJB 
-	private HelloService helloService;
+	private AccountManager accountManager;
     private String name;
     private String password;
     private String valid;
     //radio
-    private String selection = "Employee";
-    //radio
-    
-    //test
-    private List<List<String>> jobs = new ArrayList<List<String>>();
-    
 
-	public List<List<String>> getJobs() {
-		if(jobs.size() == 0)
-		{
-		List<String> job1 = new ArrayList<String>();
-		List<String> job2 = new ArrayList<String>();
-		List<String> job3 = new ArrayList<String>();
-
-		job1.add("Developer");
-		job1.add("Java");
-		job1.add("80000");
-		
-		job2.add("Coder");
-		job2.add("C");
-		job2.add("60000");
-		
-		job3.add("Manager");
-		job3.add("Arch");
-		job3.add("120000");
-		
-		jobs.add(job1);
-		jobs.add(job2);
-		jobs.add(job3);
-
-	}
-		return jobs;
-
-	}
-
-	public void setJobs(List<List<String>> jobs) {
-		this.jobs = jobs;
-	}
-    
-    
-
-    //test
-
-
-
-
-
-
-
-	//radio
-    public String getSelection() {
-		return selection;
-	}
-
-
-	public void setSelection(String selection) {
-		this.selection = selection;
-	}
-//radio
 
 	public String getValid() {
 		return valid;
@@ -126,9 +65,9 @@ public class RegisterBean
     }
 
 
-	public String userName() {
+	public String register() {
 		if((name.isEmpty() != true) && (password.isEmpty()!= true)) {
-		String ret = helloService.userName(name, password, selection);
+		String ret = accountManager.register(name, password);
 		//helloService.password(password);
 		if(!ret.equalsIgnoreCase("Exists"))
 		return "true";
