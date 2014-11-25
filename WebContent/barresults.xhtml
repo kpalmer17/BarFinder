@@ -13,60 +13,64 @@
                <br />
               <br />
                
-					<!-- <ui:repeat value="#{welcomeBean.jobs}" var="x">  -->
-               	    <h:outputText value="Bar:"></h:outputText>
-               	    
-               	
+					<ui:repeat value="#{welcomeBean.bars}" var="x">
+               	                  	
                	        <h:panelGrid columns="2">
 
                	    		<h:outputText value="Name:"></h:outputText>
-              				<h:outputText value="x[0]" />       
+              				<h:outputText value="#{x[0]}" />       
 
               				
               				<h:outputText value="Type:"></h:outputText>
-              				<h:outputText value="x[1]" />
+              				<h:outputText value="#{x[1]}" />
 
               				
               				<h:outputText value="Price:"></h:outputText>
-              				<h:outputText value="x[2]" />
+              				<h:outputText value="#{x[5]}" />
 
 
               				<h:outputText value="Address:"></h:outputText>
-              				<h:outputText value="x[3]" />
+              				<h:outputText value="#{x[2]}" />
  
               				
               				<h:outputText value="Open Hour:"></h:outputText>
-              				<h:outputText value="x[4]" />
+              				<h:outputText value="#{x[3]}" />
 
               				
               				<h:outputText value="Close Hour:"></h:outputText>
-              				<h:outputText value="x[5]" />
+              				<h:outputText value="#{x[4]}" />
 
               				</h:panelGrid>
               				
-              				<h:commandButton value="Menus" action="menu"> <!-- action used to be #{BarBean.menuSearch}  -->
-        					<!-- <f:setPropertyActionListener target="#{BarBean.barid}" value="#{x[0]}" /> -->
+              				<h:commandButton value="Menus" action="#{barBean.findMenu}"> <!-- action used to be #{BarBean.menuSearch}  -->
+        					<f:setPropertyActionListener target="#{barBean.barid}" value="#{x[6]}" />
+        					<f:setPropertyActionListener target="#{barBean.name}" value="#{x[0]}" />
               				</h:commandButton>
               				
-              				<h:commandButton value="Specials" action="special"> <!-- action used to be #{BarBean.specialSearch}  -->
-        					<!-- <f:setPropertyActionListener target="#{BarBean.barid}" value="#{x[0]}" /> -->
+              				<h:commandButton value="Specials" action="#{barBean.findSpecial}"> <!-- action used to be #{BarBean.specialSearch}  -->
+        					<f:setPropertyActionListener target="#{barBean.barid}" value="#{x[6]}" />
+        					<f:setPropertyActionListener target="#{barBean.name}" value="#{x[0]}" />
+        					
               				</h:commandButton>
               				
-              				<h:commandButton value="Activities" action="activity"> <!-- action used to be #{BarBean.activitySearch}  -->
-        					<!-- <f:setPropertyActionListener target="#{BarBean.barid}" value="#{x[0]}" /> -->
+              				<h:commandButton value="Activities" action="#{barBean.findActivity}"> <!-- action used to be #{BarBean.activitySearch}  -->
+        					<f:setPropertyActionListener target="#{barBean.barid}" value="#{x[6]}" />
+        					<f:setPropertyActionListener target="#{barBean.name}" value="#{x[0]}" />
               				</h:commandButton>
               				
-              				<h:commandButton value="Events" action="event"> <!-- action used to be #{BarBean.eventSearch}  -->
-        					<!-- <f:setPropertyActionListener target="#{BarBean.barid}" value="#{x[0]}" /> -->
+              				<h:commandButton value="Events" action="#{barBean.findEvent}"> <!-- action used to be #{BarBean.eventSearch}  -->
+        					<f:setPropertyActionListener target="#{barBean.barid}" value="#{x[6]}" />
+        					<f:setPropertyActionListener target="#{barBean.name}" value="#{x[0]}" />
               				</h:commandButton>
               				
-              				<h:commandButton value="Ratings" action="rating"> <!-- action used to be #{BarBean.ratingSearch}  -->
-        					<!-- <f:setPropertyActionListener target="#{BarBean.barid}" value="#{x[0]}" /> -->
+              				<h:commandButton value="Ratings" action="#{barBean.findRating}"> <!-- action used to be #{BarBean.ratingSearch}  -->
+        					<f:setPropertyActionListener target="#{barBean.barid}" value="#{x[6]}" />
+        					<f:setPropertyActionListener target="#{barBean.name}" value="#{x[0]}" />
               				</h:commandButton>
-              				<h:commandButton value="FAIL" action = "false"></h:commandButton>
               				<br />
           		
-               	    <!--  </ui:repeat>  -->
+               	    </ui:repeat>
+               	    <br />
             <h:commandButton value="Back" action="back"></h:commandButton>
             <h:commandButton value="Logout" action="logout"></h:commandButton>
             

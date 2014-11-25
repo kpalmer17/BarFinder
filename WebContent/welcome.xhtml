@@ -13,7 +13,7 @@
             <h:panelGrid columns="2">
             	<h:outputText value="Search for Bar by: "></h:outputText>
                 
-				<h:selectOneMenu value="welcomeBean.selection">
+				<h:selectOneMenu value="#{welcomeBean.label}">
    				<f:selectItem itemValue="bar" itemLabel="Name" />
    				<f:selectItem itemValue="food" itemLabel="Food" />
    				<f:selectItem itemValue="drink" itemLabel="Drink" />
@@ -21,13 +21,12 @@
    				<f:selectItem itemValue="event" itemLabel="Event" />			
 				</h:selectOneMenu>
                 <h:outputText value="Search:"></h:outputText>
-                <h:inputText value="welcomeBean.searchText"></h:inputText>
+                <h:inputText value="#{welcomeBean.searchText}"></h:inputText>
 				
             </h:panelGrid>
             
-            <h:commandButton value="Search" action="true"></h:commandButton> <!-- action used to be welcomeBean.search  -->
-            <h:commandButton value="No Results" action="false"></h:commandButton>  
-            <h:commandButton value="My Ratings" action="rating"></h:commandButton>
+            <h:commandButton value="Search" action="#{welcomeBean.search}"></h:commandButton> <!-- action used to be welcomeBean.search  -->
+            <h:commandButton value="My Ratings" action="#{welcomeBean.rating}"></h:commandButton>
             <h:commandButton value="Logout" action="logout"></h:commandButton>         
        
         </h:form>

@@ -9,36 +9,30 @@
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
     <ui:define name="content">
         <h:form>
-            <h:outputText value="Ratings from "></h:outputText>
-            <h:outputText value="LoginBean.name "></h:outputText> <!-- value used to be #{BarBean.name} -->
+            <h:outputText value="#{loginBean.name}"></h:outputText>
+            <h:outputText value="'s Ratings"></h:outputText>
+
                <br />
               <br />
                
-					<!-- <ui:repeat value="#{welcomeBean.ratings}" var="x">  -->
+					<ui:repeat value="#{welcomeBean.ratings}" var="x">
                	    <h:outputText value="Bar: "></h:outputText>
-              				<h:outputText value="x[5]" />
-               	    
-               	
-               	        <h:panelGrid columns="2">
+              				<h:outputText value="#{x[4]}" />
 
-              				
-              				
+               	        <h:panelGrid columns="2">
+   				
                	    		<h:outputText value="Rating:"></h:outputText>
-              				<h:outputText value="x[1]" />       
+              				<h:outputText value="#{x[1]}" />       
               				
               				<h:outputText value="Comment:"></h:outputText>
-              				<h:outputText value="x[2]" />
+              				<h:outputText value="#{x[2]}" />
               				
               				<h:outputText value="Date:"></h:outputText>
-              				<h:outputText value="x[3]" />
-
-
-              				
+              				<h:outputText value="#{x[3]}" />
+   				
               				<br />
-
-              			</h:panelGrid>
-          		
-               	    <!--   </ui:repeat> -->
+              			</h:panelGrid>        		
+               	    </ui:repeat>
                	    
             <h:commandButton value="Back" action="back"></h:commandButton>
             <h:commandButton value="Logout" action="logout"></h:commandButton>

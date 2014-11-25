@@ -9,24 +9,22 @@
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
     <ui:define name="content">
         <h:form>
-            <h:outputText value="Items: "></h:outputText>
+            <h:outputText value="#{menuBean.title} "></h:outputText>
                <br />
               <br />
                
-					<!--  <ui:repeat value="#{MenuBean.items}" var="x">  -->
-               	    <h:outputText value="Item:"></h:outputText>
-               	    
+					<ui:repeat value="#{menuBean.items}" var="x">
                	
                	        <h:panelGrid columns="2">
 
                	    		<h:outputText value="Name:"></h:outputText>
-              				<h:outputText value="x[1]" />       
+              				<h:outputText value="#{x[1]}" />       
               				
               				<h:outputText value="Type:"></h:outputText>
-              				<h:outputText value="x[2]" />
+              				<h:outputText value="#{x[3]}" />
               				
               				<h:outputText value="Price:"></h:outputText>
-              				<h:outputText value="x[3]" />
+              				<h:outputText value="#{x[3]}" />
 
               				
               				<br />
@@ -34,7 +32,7 @@
               				
               			</h:panelGrid>
           		
-               	    <!--  </ui:repeat>  -->
+               	    </ui:repeat>
             <h:commandButton value="Back" action="back"></h:commandButton>
             <h:commandButton value="Logout" action="logout"></h:commandButton>
             

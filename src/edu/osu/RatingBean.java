@@ -1,6 +1,13 @@
 package edu.osu;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import javax.ejb.EJB;
+
+
+
 
 
 
@@ -13,16 +20,24 @@ public class RatingBean {
 	private String rating;
 	private String comment;
 	private String date;
-	private String barid;
+
 	
 	private LoginBean logBean;
-
+	private BarBean barBean;
 	public LoginBean getLogBean() {
 		return logBean;
 	}
 
 	public void setLogBean(LoginBean logBean) {
 		this.logBean = logBean;
+	}
+	
+	public BarBean getBarBean() {
+		return barBean;
+	}
+
+	public void setBarBean(BarBean barBean) {
+		this.barBean = barBean;
 	}
 
 	public String getRating() {
@@ -49,20 +64,18 @@ public class RatingBean {
 		this.date = date;
 	}
 
-	public String getBarid() {
-		return barid;
-	}
-
-	public void setBarid(String barid) {
-		this.barid = barid;
-	}
 	
 	public String add() {
 		
 		int ratingnum = Integer.parseInt(rating);
-		int baridnum = Integer.parseInt(barid);
+		Calendar c = new GregorianCalendar();
+		Date today = c.getTime();
 		
-		String ret = ratingManager.add(ratingnum, comment, date, baridnum, logBean.getUserid());
+		setDate(today.toString());
+		System.out.println(String.valueOf(barBean.getBarid()));
+		System.out.println(String.valueOf(logBean.getUserid()));
+		
+		String ret = ratingManager.add(ratingnum, comment, date, barBean.getBarid(), logBean.getUserid());
 		
 		if(!ret.equalsIgnoreCase("fail"))
 			return "true";

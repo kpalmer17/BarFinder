@@ -52,6 +52,9 @@
    <PROCESS-ITEM-OUTPUT ID="rating::#myratings.xhtml" NAME="output1"
     PATH="/myratings.xhtml" TARGET="rules:#myratings.xhtml"
     TITLE="rating" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ratingfail::#myratingfail.xhtml"
+    NAME="output2" PATH="/myratingfail.xhtml"
+    TARGET="rules:#myratingfail.xhtml" TITLE="ratingfail" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#exit.xhtml" PATH="/exit.xhtml"
@@ -137,6 +140,9 @@
    <PROCESS-ITEM-OUTPUT ID="logout::#exit.xhtml" NAME="output7"
     PATH="/exit.xhtml" SHAPE="-1,24" TARGET="rules:#exit.xhtml"
     TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ratingfail::#noratings.xhtml" NAME="output8"
+    PATH="/noratings.xhtml" TARGET="rules:#noratings.xhtml"
+    TITLE="ratingfail" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#menu.xhtml" PATH="/menu.xhtml"
@@ -255,17 +261,9 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#activity.xhtml" PATH="/activity.xhtml"
-  SHAPE="440,552,50,57" model-entity="JSFProcessGroup">
+  SHAPE="448,440,50,89" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#activity.xhtml:0" NAME="item"
    PATH="/activity.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="back::#barresults.xhtml" NAME="output"
-    PATH="/barresults.xhtml" TARGET="rules:#barresults.xhtml"
-    TITLE="back" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="logout::#exit.xhtml" NAME="output1"
-    PATH="/exit.xhtml" TARGET="rules:#exit.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
-  <PROCESS-ITEM ID="rules:#activity.xhtml:1" NAME="item1"
-   PATH="/activity.xhtml" SHAPE="448,622,47,31" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="back::#barresults.xhtml" NAME="output"
     PATH="/barresults.xhtml" TARGET="rules:#barresults.xhtml"
     TITLE="back" model-entity="JSFProcessItemOutput"/>
@@ -289,6 +287,29 @@
    PATH="/ratingfail.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="back::#rating.xhtml" NAME="output"
     PATH="/rating.xhtml" TARGET="rules:#rating.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#myratingfail.xhtml"
+  PATH="/myratingfail.xhtml" SHAPE="1768,208,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#myratingfail.xhtml:0" NAME="item"
+   PATH="/myratingfail.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="back::#welcome.xhtml" NAME="output"
+    PATH="/welcome.xhtml" TARGET="rules:#welcome.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#noratings.xhtml" PATH="/noratings.xhtml"
+  SHAPE="1088,384,50,73" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#noratings.xhtml:0" NAME="item"
+   PATH="/noratings.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="back::#barresults.xhtml" NAME="output"
+    PATH="/barresults.xhtml" TARGET="rules:#barresults.xhtml"
+    TITLE="back" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="true::#ratingadded.xhtml" NAME="output1"
+    PATH="/ratingadded.xhtml" TARGET="rules:#ratingadded.xhtml"
+    TITLE="true" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="fail::#ratingfail.xhtml" NAME="output2"
+    PATH="/ratingfail.xhtml" TARGET="rules:#ratingfail.xhtml"
+    TITLE="fail" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

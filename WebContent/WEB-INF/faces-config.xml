@@ -21,10 +21,30 @@
    <property-class>edu.osu.LoginBean</property-class>
    <value>#{loginBean}</value>
   </managed-property>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>barBean</managed-bean-name>
+  <managed-bean-class>edu.osu.BarBean</managed-bean-class>
+  <managed-bean-scope>application</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>menuBean</managed-bean-name>
+  <managed-bean-class>edu.osu.MenuBean</managed-bean-class>
+  <managed-bean-scope>application</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>specialBean</managed-bean-name>
+  <managed-bean-class>edu.osu.SpecialBean</managed-bean-class>
+  <managed-bean-scope>application</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>ratingBean</managed-bean-name>
+  <managed-bean-class>edu.osu.RatingBean</managed-bean-class>
+  <managed-bean-scope>application</managed-bean-scope>
   <managed-property>
-   <property-name>RatingBean</property-name>
-   <property-class>edu.osu.RatingBean</property-class>
-   <value>#{ratingBean}</value>
+   <property-name>logBean</property-name>
+   <property-class>edu.osu.LoginBean</property-class>
+   <value>#{loginBean}</value>
   </managed-property>
  </managed-bean>
  <navigation-rule>
@@ -85,6 +105,10 @@
   <navigation-case>
    <from-outcome>rating</from-outcome>
    <to-view-id>/myratings.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>ratingfail</from-outcome>
+   <to-view-id>/myratingfail.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
@@ -167,6 +191,10 @@
   <navigation-case>
    <from-outcome>logout</from-outcome>
    <to-view-id>/exit.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>ratingfail</from-outcome>
+   <to-view-id>/noratings.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
@@ -292,17 +320,6 @@
   </navigation-case>
  </navigation-rule>
  <navigation-rule>
-  <from-view-id>/activity.xhtml</from-view-id>
-  <navigation-case>
-   <from-outcome>back</from-outcome>
-   <to-view-id>/barresults.xhtml</to-view-id>
-  </navigation-case>
-  <navigation-case>
-   <from-outcome>logout</from-outcome>
-   <to-view-id>/exit.xhtml</to-view-id>
-  </navigation-case>
- </navigation-rule>
- <navigation-rule>
   <from-view-id>/myratings.xhtml</from-view-id>
   <navigation-case>
    <from-outcome>back</from-outcome>
@@ -325,6 +342,28 @@
   <navigation-case>
    <from-outcome>back</from-outcome>
    <to-view-id>/rating.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/myratingfail.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>back</from-outcome>
+   <to-view-id>/welcome.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/noratings.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>back</from-outcome>
+   <to-view-id>/barresults.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>true</from-outcome>
+   <to-view-id>/ratingadded.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>fail</from-outcome>
+   <to-view-id>/ratingfail.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
 </faces-config>

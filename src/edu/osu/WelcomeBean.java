@@ -88,14 +88,14 @@ public class WelcomeBean
 	}
 	
 	
-	public String ratings() {
+	public String rating() {
 		
 		ratings = ratingManager.findForUser(logBean.getUserid());
 		
 		if(ratings.isEmpty())
-			return "false";
+			return "ratingfail";
 		
 		else
-		{return "true";}
+		{return "rating";}
 	}
 }
