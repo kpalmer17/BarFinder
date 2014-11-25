@@ -31,7 +31,7 @@
               				<h:outputText value="Ends:"></h:outputText>
               				<h:outputText value="#{x[4]}" />
               				
-              				<h:commandButton value="Items" action="#{specialBean.getItems}">
+              				<h:commandButton value="Items" action="#{specialBean.findItem}">
         					<f:setPropertyActionListener target="#{specialBean.specialid}" value="#{x[0]}" />
               				<f:setPropertyActionListener target="#{specialBean.title}" value="#{x[1]}" />
               				</h:commandButton>
